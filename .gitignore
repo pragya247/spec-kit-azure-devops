@@ -1,0 +1,45 @@
+# Azure DevOps Integration - Local Configuration
+# Do not commit this file!
+
+# Azure DevOps configuration
+# This file is auto-generated when you run the sync command
+# Location: ~/.speckit/ado-config.json
+
+# Editor-specific files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Local configs (gitignored)
+ado-config.local.json
+*.local.json
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.Python
+venv/
+env/
+.env
+
+# Node
+node_modules/
+npm-debug.log*
+
+# Test files
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Build artifacts
+dist/
+build/
+*.egg-info/

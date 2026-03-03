@@ -1,0 +1,54 @@
+schema_version: "1.0"
+
+extension:
+  id: "azure-devops"
+  name: "Azure DevOps Integration"
+  version: "1.0.0"
+  description: "Sync user stories and tasks to Azure DevOps work items using OAuth authentication"
+  author: "GitHub Spec Kit Team"
+  repository: "https://github.com/github/spec-kit-azure-devops"
+  license: "MIT"
+  homepage: "https://github.com/github/spec-kit-azure-devops"
+
+requires:
+  speckit_version: ">=0.1.0"
+  tools:
+    - name: "az"
+      version: ">=2.0.0"
+      required: true
+      description: "Azure CLI for Azure DevOps API access"
+      install_url: "https://aka.ms/installazurecliwindows"
+  commands:
+    - "speckit.tasks"
+
+provides:
+  commands:
+    - name: "speckit.azure-devops.sync"
+      file: "commands/adosync.md"
+      description: "Sync selected user stories or tasks to Azure DevOps"
+      aliases: ["speckit.adosync"]
+
+  config:
+    - name: "ado-config.json"
+      template: "config-template.json"
+      description: "Azure DevOps configuration (organization, project, area path)"
+      required: true
+
+hooks:
+  after_tasks:
+    command: "speckit.azure-devops.sync"
+    optional: true
+    prompt: "Sync tasks to Azure DevOps?"
+    description: "Automatically create Azure DevOps work items after task generation"
+
+tags:
+  - "azure"
+  - "devops"
+  - "project-management"
+  - "work-items"
+  - "issue-tracking"
+
+defaults:
+  update_behavior:
+    mode: "create"
+    sync_completion: false
