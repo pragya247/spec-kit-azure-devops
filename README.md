@@ -16,11 +16,12 @@ Sync user stories and tasks from Spec Kit to Azure DevOps work items using OAuth
 ## Installation
 
 ```bash
-# Install from catalog (once published)
+# Install from catalog
+$env:SPECKIT_CATALOG_URL="https://raw.githubusercontent.com/github/spec-kit/main/extensions/catalog.community.json"
 specify extension add azure-devops
 
-# Or install from local development directory
-specify extension add --dev /path/to/spec-kit-azure-devops
+# Or install Directly by URL
+specify extension add azure-devops --from https://github.com/pragya247/spec-kit-azure-devops/archive/refs/tags/v1.0.0.zip
 ```
 
 ## Prerequisites
